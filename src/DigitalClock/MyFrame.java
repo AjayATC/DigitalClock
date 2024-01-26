@@ -30,14 +30,11 @@ public class MyFrame extends JFrame {
         this.add(clock);
     }
     public void startClock(){
-        Timer timer = new Timer(1000, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Date d = new Date();
-                SimpleDateFormat sdf = new SimpleDateFormat("hh : mm : ss a");
-                String dateTime = sdf.format(d);
-                clock.setText(dateTime);
-            }
+        Timer timer = new Timer(1000, e -> {
+            Date d = new Date();
+            SimpleDateFormat sdf = new SimpleDateFormat("hh : mm : ss a");
+            String dateTime = sdf.format(d);
+            clock.setText(dateTime);
         });
             timer.start();
 
